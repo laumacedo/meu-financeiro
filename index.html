@@ -677,6 +677,13 @@ tr:last-child td {
     }
 }
 </style>
+
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Meu Financeiro">
+
 </head>
 
 <body>
@@ -3178,6 +3185,16 @@ applySettings();
 
 updateAll();
 
+</script>
+
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+            .catch(error => console.log("PWA:", error));
+    });
+}
 </script>
 
 </body>
